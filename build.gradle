@@ -1,0 +1,43 @@
+group 'com.itlgl.gui'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile fileTree(dir: 'lib', include: ['jgoodies-common.jar','jgoodies-forms.jar'])
+    compile 'com.itlgl:cryptoutil:0.0.1'
+    compile 'com.google.guava:guava:24.1-jre'
+}
+
+//设置编码
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.3'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+
+//使用shadow插件打包，代替jar功能。
+jar {
+    manifest {  //incubating版本，以后版本可能会改API
+        attributes("Main-Class": "com.itlgl.ui.CryptoToolUI",
+                "Implementation-Title": "Gradle")
+    }
+}

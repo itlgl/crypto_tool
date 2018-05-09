@@ -1,0 +1,39 @@
+JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.GridBagLayout ) {
+			"$columnSpecs": "0:1.0"
+			"$rowSpecs": "0:1.0"
+			"$hGap": 5
+			"$vGap": 5
+			"$alignLeft": true
+			"$alignTop": true
+		} ) {
+			name: "this"
+			"title": "Crypto Tool"
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "tabbedPane1"
+				add( new FormComponent( "com.itlgl.ui.panel.BaseEncodeDecodePanel" ) {
+					name: "baseEncodeDecodePanel1"
+				}, new FormLayoutConstraints( null ) {
+					"title": " Base编解码 "
+				} )
+				add( new FormComponent( "com.itlgl.ui.panel.DESPanel" ) {
+					name: "dESPanel1"
+				}, new FormLayoutConstraints( null ) {
+					"title": " DES "
+				} )
+				add( new FormComponent( "com.itlgl.ui.panel.AESPanel" ) {
+					name: "aESPanel1"
+				}, new FormLayoutConstraints( null ) {
+					"title": " AES "
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 670, 525 )
+		} )
+	}
+}
